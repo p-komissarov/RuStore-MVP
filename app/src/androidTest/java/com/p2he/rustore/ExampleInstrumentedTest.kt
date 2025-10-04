@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.P2He.rustore", appContext.packageName)
+        assertEquals("com.p2he.rustore", appContext.packageName)
     }
 }

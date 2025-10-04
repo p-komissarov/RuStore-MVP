@@ -4,7 +4,6 @@ data class AppModel(
     val id: String,
     val name: String,
     val iconUrl: String,
-    val shortDescription: String,
     val longDescription: String,
     val category: String,
     val developer: String,

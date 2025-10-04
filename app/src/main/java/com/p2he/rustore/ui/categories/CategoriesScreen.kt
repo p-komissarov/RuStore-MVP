@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,12 +32,21 @@ import com.p2he.rustore.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CategoriesScreen(navController: NavController) {
-    var selectedTabIndex by remember { mutableStateOf(0) }
+fun CategoriesScreen(navController: NavController, selectedSubCategory: String?) {
     val subCategories = listOf(
         "СОЦ. СЕТИ", "ИГРЫ", "МАРКЕТПЛЕЙСЫ", "ФОТО И ВИДЕО",
         "МУЗЫКА И АУДИО", "КНИГИ", "ОБРАЗОВАНИЕ", "ЗДОРОВЬЕ И СПОРТ"
     )
+    var selectedTabIndex by remember { mutableStateOf(0) }
+
+    LaunchedEffect(selectedSubCategory) {
+        selectedSubCategory?.let { 
+            val index = subCategories.indexOf(it)
+            if (index != -1) {
+                selectedTabIndex = index
+            }
+        }
+    }
 
     Scaffold(
         topBar = { CategoriesTopAppBar(navController) },
@@ -66,24 +76,34 @@ fun CategoriesTopAppBar(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(90.dp)
+            .height(96.dp)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Text(
-                "Главная",
+                "ГЛАВНАЯ",
                 color = RuStoreWhite,
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.clickable { navController.navigate("gallery") })
-            Text("Категории", color = RuStoreDarkPink, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
-            Text("О нас", color = RuStoreWhite, fontWeight = FontWeight.Normal)
+            Text(
+                "КАТЕГОРИИ",
+                color = RuStoreDarkPink,
+                textDecoration = TextDecoration.Underline,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                "О НАС",
+                color = RuStoreWhite,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier.clickable { navController.navigate("about") }
+            )
         }
-        IconButton(onClick = { /* TODO: Menu click */ }) {
+        IconButton(onClick = { navController.navigate("menu") }) {
             Image(
                 painter = painterResource(id = R.drawable.menu),
                 contentDescription = "Меню",
@@ -101,10 +121,12 @@ fun SubCategoryTabs(selectedTabIndex: Int, onTabSelected: (Int) -> Unit, subCate
         contentColor = RuStoreBlack,
         edgePadding = 16.dp,
         indicator = { tabPositions ->
-            TabRowDefaults.Indicator(
-                modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                color = RuStoreBlack
-            )
+            if (selectedTabIndex < tabPositions.size) {
+                TabRowDefaults.Indicator(
+                    modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
+                    color = RuStoreBlack
+                )
+            }
         }
     ) {
         subCategories.forEachIndexed { index, title ->
@@ -122,11 +144,11 @@ fun CategoryContent(navController: NavController, selectedCategory: String) {
     val apps = remember(selectedCategory) {
         // Dummy data, in a real app this would be fetched from a repository
         listOf(
-            AppModel("1", "Приложение 1", "Разработчик A", "", "", selectedCategory, "", "0+", "", "1.0", "50MB"),
-            AppModel("2", "Приложение 2", "Разработчик B", "", "", selectedCategory, "", "0+", "", "1.1", "60MB"),
-            AppModel("3", "Приложение 3", "Разработчик C", "", "", selectedCategory, "", "0+", "", "1.2", "70MB"),
-            AppModel("4", "Приложение 4", "Разработчик D", "", "", selectedCategory, "", "0+", "", "1.3", "80MB"),
-            AppModel("5", "Приложение 5", "Разработчик E", "", "", selectedCategory, "", "0+", "", "1.4", "90MB"),
+            AppModel("1", "Приложение 1", "Разработчик A", "", "", "", "0+", "", "1.0", "50MB"),
+            AppModel("2", "Приложение 2", "Разработчик B", "", "", "", "0+", "", "1.1", "60MB"),
+            AppModel("3", "Приложение 3", "Разработчик C", "", "", "", "0+", "", "1.2", "70MB"),
+            AppModel("4", "Приложение 4", "Разработчик D", "", "", "", "0+", "", "1.3", "80MB"),
+            AppModel("5", "Приложение 5", "Разработчик E", "", "", "", "0+", "", "1.4", "90MB"),
         )
     }
 
@@ -185,7 +207,6 @@ fun AppListItem(app: AppModel, onAppClick: (String) -> Unit) {
                         onClick = { /* TODO: Download click */ },
                         shape = RoundedCornerShape(50),
                         colors = ButtonDefaults.buttonColors(containerColor = RuStoreBrightPink),
-                        // ИЗМЕНЕНО: Кнопка сделана еще меньше
                         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 0.dp),
                         modifier = Modifier.height(24.dp)
                     ) {
@@ -205,10 +226,10 @@ fun AppListItem(app: AppModel, onAppClick: (String) -> Unit) {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun CategoriesScreenPreview() {
     RuStoreTheme {
-        CategoriesScreen(navController = NavController(androidx.compose.ui.platform.LocalContext.current))
+        CategoriesScreen(navController = NavController(androidx.compose.ui.platform.LocalContext.current), selectedSubCategory = null)
     }
 }

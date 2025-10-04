@@ -1,0 +1,46 @@
+com.p2he.rustore.app-resValues-0 C:\Program Files\Android Studio Projects\app\build\generated\res\resValues\debug
+com.p2he.rustore.app-updated_navigation_xml-1 C:\Program Files\Android Studio Projects\app\build\generated\updated_navigation_xml\debug
+com.p2he.rustore.app-packageDebugResources-2 C:\Program Files\Android Studio Projects\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.p2he.rustore.app-packageDebugResources-3 C:\Program Files\Android Studio Projects\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.p2he.rustore.app-debug-4 C:\Program Files\Android Studio Projects\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.p2he.rustore.app-debug-5 C:\Program Files\Android Studio Projects\app\src\debug\res
+com.p2he.rustore.app-main-6 C:\Program Files\Android Studio Projects\app\src\main\res
+com.p2he.rustore.app-material3-7 C:\Users\Пользователь\.gradle\caches\8.13\transforms\0165ce14b60f7709d5d28308eb605bf6\transformed\material3\res
+com.p2he.rustore.app-datastore-core-release-8 C:\Users\Пользователь\.gradle\caches\8.13\transforms\0422788326ec6d761b73842ddee8c0e1\transformed\datastore-core-release\res
+com.p2he.rustore.app-navigationevent-9 C:\Users\Пользователь\.gradle\caches\8.13\transforms\066842bb4c30771aba307dc31acb2772\transformed\navigationevent\res
+com.p2he.rustore.app-material-10 C:\Users\Пользователь\.gradle\caches\8.13\transforms\097fc0bc45f54b899e4cd293a78ce73b\transformed\material\res
+com.p2he.rustore.app-annotation-experimental-1.4.1-11 C:\Users\Пользователь\.gradle\caches\8.13\transforms\0a6279d34cc9795b6f2febb4a1ccfd20\transformed\annotation-experimental-1.4.1\res
+com.p2he.rustore.app-foundation-release-12 C:\Users\Пользователь\.gradle\caches\8.13\transforms\10d302f1f042224fe8937c33c864a2b9\transformed\foundation-release\res
+com.p2he.rustore.app-core-runtime-2.2.0-13 C:\Users\Пользователь\.gradle\caches\8.13\transforms\1225a44a4c4f9859e78e55f4aaae5ca1\transformed\core-runtime-2.2.0\res
+com.p2he.rustore.app-appcompat-resources-1.6.1-14 C:\Users\Пользователь\.gradle\caches\8.13\transforms\1557bd27e4aa856a95f6b5837570a7e6\transformed\appcompat-resources-1.6.1\res
+com.p2he.rustore.app-material-icons-core-release-15 C:\Users\Пользователь\.gradle\caches\8.13\transforms\237d8091e106ca25dea73306f9f8f663\transformed\material-icons-core-release\res
+com.p2he.rustore.app-startup-runtime-1.2.0-16 C:\Users\Пользователь\.gradle\caches\8.13\transforms\23a37ba4cc01fb926cad99579af65b9c\transformed\startup-runtime-1.2.0\res
+com.p2he.rustore.app-ui-test-manifest-1.9.2-17 C:\Users\Пользователь\.gradle\caches\8.13\transforms\261e62107c5044df0e26a79e5e4a7f67\transformed\ui-test-manifest-1.9.2\res
+com.p2he.rustore.app-lifecycle-process-2.9.4-18 C:\Users\Пользователь\.gradle\caches\8.13\transforms\2a16c2145b839f7d9aae198e73a3f7e8\transformed\lifecycle-process-2.9.4\res
+com.p2he.rustore.app-savedstate-ktx-1.3.3-19 C:\Users\Пользователь\.gradle\caches\8.13\transforms\2f99217c0ccf5364e7c388d90c91826a\transformed\savedstate-ktx-1.3.3\res
+com.p2he.rustore.app-lifecycle-livedata-core-2.9.4-20 C:\Users\Пользователь\.gradle\caches\8.13\transforms\31e1a5ecfbd7a8b2cd7e0f3b765019bb\transformed\lifecycle-livedata-core-2.9.4\res
+com.p2he.rustore.app-graphics-path-1.0.1-21 C:\Users\Пользователь\.gradle\caches\8.13\transforms\333b2da6c250a9b1b022abc51fab6630\transformed\graphics-path-1.0.1\res
+com.p2he.rustore.app-activity-ktx-1.12.0-alpha09-22 C:\Users\Пользователь\.gradle\caches\8.13\transforms\418af4a9c13c163f45c8bf2d5859dd4f\transformed\activity-ktx-1.12.0-alpha09\res
+com.p2he.rustore.app-core-ktx-1.17.0-23 C:\Users\Пользователь\.gradle\caches\8.13\transforms\5266407aa79cdb63d63873e7cbb743f1\transformed\core-ktx-1.17.0\res
+com.p2he.rustore.app-material-icons-extended-release-24 C:\Users\Пользователь\.gradle\caches\8.13\transforms\592067d9fc48d53b487c7bcdae71fbcb\transformed\material-icons-extended-release\res
+com.p2he.rustore.app-lifecycle-viewmodel-release-25 C:\Users\Пользователь\.gradle\caches\8.13\transforms\5a92460f9601089bd94b8154f784ad8a\transformed\lifecycle-viewmodel-release\res
+com.p2he.rustore.app-customview-poolingcontainer-1.0.0-26 C:\Users\Пользователь\.gradle\caches\8.13\transforms\64248d95bdba0ecad2af1db5c534a69f\transformed\customview-poolingcontainer-1.0.0\res
+com.p2he.rustore.app-tracing-1.2.0-27 C:\Users\Пользователь\.gradle\caches\8.13\transforms\70a4ae76a3d80bf94f47f8e7ee2b6b38\transformed\tracing-1.2.0\res
+com.p2he.rustore.app-activity-compose-1.12.0-alpha09-28 C:\Users\Пользователь\.gradle\caches\8.13\transforms\7c036f586688c6053ab73afa8f375099\transformed\activity-compose-1.12.0-alpha09\res
+com.p2he.rustore.app-navigation-common-release-29 C:\Users\Пользователь\.gradle\caches\8.13\transforms\85d02a2fd4da81937b580c235a230575\transformed\navigation-common-release\res
+com.p2he.rustore.app-core-1.17.0-30 C:\Users\Пользователь\.gradle\caches\8.13\transforms\8dec18e1b92ac03a1e19b060a92cb704\transformed\core-1.17.0\res
+com.p2he.rustore.app-lifecycle-viewmodel-compose-release-31 C:\Users\Пользователь\.gradle\caches\8.13\transforms\9aac875582f3db3004361c6065088cdc\transformed\lifecycle-viewmodel-compose-release\res
+com.p2he.rustore.app-navigation-compose-release-32 C:\Users\Пользователь\.gradle\caches\8.13\transforms\a013d5f17eea88eaaaf2c98447546bb6\transformed\navigation-compose-release\res
+com.p2he.rustore.app-activity-1.12.0-alpha09-33 C:\Users\Пользователь\.gradle\caches\8.13\transforms\a0d7a6909ee0c5f81c5ba244a7a1e304\transformed\activity-1.12.0-alpha09\res
+com.p2he.rustore.app-ui-graphics-release-34 C:\Users\Пользователь\.gradle\caches\8.13\transforms\a3f7ef6eef6b9d42c446170543655955\transformed\ui-graphics-release\res
+com.p2he.rustore.app-core-viewtree-1.0.0-35 C:\Users\Пользователь\.gradle\caches\8.13\transforms\ab2c8f5cfda8f20866d43a9de55187fb\transformed\core-viewtree-1.0.0\res
+com.p2he.rustore.app-lifecycle-runtime-release-36 C:\Users\Пользователь\.gradle\caches\8.13\transforms\be164bcd1f59aa4d48acf56fa7948831\transformed\lifecycle-runtime-release\res
+com.p2he.rustore.app-profileinstaller-1.4.0-37 C:\Users\Пользователь\.gradle\caches\8.13\transforms\cd54f54a67109ae249cd2869ba65ac84\transformed\profileinstaller-1.4.0\res
+com.p2he.rustore.app-savedstate-release-38 C:\Users\Пользователь\.gradle\caches\8.13\transforms\d98e84fa9f9dab57fb182efbf2337d5a\transformed\savedstate-release\res
+com.p2he.rustore.app-lifecycle-viewmodel-ktx-2.9.4-39 C:\Users\Пользователь\.gradle\caches\8.13\transforms\dc2bf2eeb24d656c661075e924e04b34\transformed\lifecycle-viewmodel-ktx-2.9.4\res
+com.p2he.rustore.app-emoji2-1.4.0-40 C:\Users\Пользователь\.gradle\caches\8.13\transforms\e893565a7f0c9642178a5fcb58016135\transformed\emoji2-1.4.0\res
+com.p2he.rustore.app-ui-release-41 C:\Users\Пользователь\.gradle\caches\8.13\transforms\ef79351b48fbd16bae6e2b099d0738fe\transformed\ui-release\res
+com.p2he.rustore.app-lifecycle-viewmodel-savedstate-release-42 C:\Users\Пользователь\.gradle\caches\8.13\transforms\f0f1c98a686c6799e69fe4197406ffe7\transformed\lifecycle-viewmodel-savedstate-release\res
+com.p2he.rustore.app-lifecycle-runtime-compose-release-43 C:\Users\Пользователь\.gradle\caches\8.13\transforms\f627af54fc5da69f3da3b80fbb24aadb\transformed\lifecycle-runtime-compose-release\res
+com.p2he.rustore.app-navigation-runtime-release-44 C:\Users\Пользователь\.gradle\caches\8.13\transforms\fb60e652697eef3af0bebc2bd6417d43\transformed\navigation-runtime-release\res
+com.p2he.rustore.app-coil-base-2.7.0-45 C:\Users\Пользователь\.gradle\caches\8.13\transforms\fc305108bc2f0aec40cd9dbead90d241\transformed\coil-base-2.7.0\res

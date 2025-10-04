@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -84,25 +85,30 @@ fun GalleryTopAppBar(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(90.dp)
+            .height(96.dp)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(24.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            Text("Главная", color = RuStoreDarkPink, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
+            Text("ГЛАВНАЯ", color = RuStoreDarkPink, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
             Text(
-                "Категории",
+                "КАТЕГОРИИ",
                 color = RuStoreWhite,
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.clickable { navController.navigate("categories") }
             )
-            Text("О нас", color = RuStoreWhite, fontWeight = FontWeight.Normal)
+            Text(
+                "О НАС",
+                color = RuStoreWhite,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier.clickable { navController.navigate("about") }
+            )
         }
-        IconButton(onClick = { /* TODO: Menu click */ }) {
+        IconButton(onClick = { navController.navigate("menu") }) {
             Image(
                 painter = painterResource(id = R.drawable.menu),
                 contentDescription = "Меню",
@@ -146,7 +152,6 @@ fun AppListItem(app: AppModel, onAppClick: (String) -> Unit) {
                         onClick = { /* TODO: Download click */ },
                         shape = RoundedCornerShape(50),
                         colors = ButtonDefaults.buttonColors(containerColor = RuStoreBrightPink),
-                        // ИЗМЕНЕНО: Кнопка сделана еще меньше
                         contentPadding = PaddingValues(horizontal = 12.dp, vertical = 0.dp),
                         modifier = Modifier.height(24.dp)
                     ) {

@@ -45,7 +45,7 @@ fun AppDetailsScreen(navController: NavController, appId: String?) {
                         modifier = Modifier.size(32.dp)
                     )
                 }
-                IconButton(onClick = { /* TODO: Действие для меню */ }) {
+                IconButton(onClick = { navController.navigate("menu") }) {
                     Image(
                         painter = painterResource(id = R.drawable.menu),
                         contentDescription = "Меню",

@@ -1,4 +1,4 @@
-package com.P2He.rustore.model
+package com.p2he.rustore.model
 
 data class AppModel(
     val id: String,

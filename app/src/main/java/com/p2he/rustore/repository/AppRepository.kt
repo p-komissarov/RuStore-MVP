@@ -1,6 +1,6 @@
-package com.P2He.rustore.repository
+package com.p2he.rustore.repository
 
-import com.P2He.rustore.model.AppModel
+import com.p2he.rustore.model.AppModel
 import kotlin.collections.listOf
 
 class AppRepository {

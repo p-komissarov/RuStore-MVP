@@ -1,4 +1,4 @@
-package com.P2He.rustore.ui.theme
+package com.p2he.rustore.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -30,7 +30,6 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun RuStoreTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {

@@ -1,8 +1,8 @@
-package com.P2He.rustore.viewmodel
+package com.p2he.rustore.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.P2He.rustore.model.AppModel
-import com.P2He.rustore.repository.AppRepository
+import com.p2he.rustore.model.AppModel
+import com.p2he.rustore.repository.AppRepository
 
 class AppGalleryViewModel : ViewModel() {
     private val repository = AppRepository()

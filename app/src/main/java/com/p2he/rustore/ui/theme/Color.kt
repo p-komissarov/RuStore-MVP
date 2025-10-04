@@ -1,4 +1,4 @@
-package com.P2He.rustore.ui.theme
+package com.p2he.rustore.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.P2He.rustore.ui.onboarding
+package com.p2he.rustore.ui.onboarding
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

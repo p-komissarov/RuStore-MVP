@@ -1,4 +1,4 @@
-package com.P2He.rustore
+package com.p2he.rustore
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

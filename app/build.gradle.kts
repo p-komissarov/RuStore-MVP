@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.P2He.rustore"
+    namespace = "com.p2he.rustore"
     compileSdk = 36
 
     defaultConfig {

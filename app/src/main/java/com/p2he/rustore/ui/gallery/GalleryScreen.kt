@@ -1,5 +1,7 @@
 package com.p2he.rustore.ui.gallery
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,64 +14,65 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import coil.compose.AsyncImage
+import com.p2he.rustore.R
 import com.p2he.rustore.model.AppModel
 import com.p2he.rustore.repository.AppRepository
 import com.p2he.rustore.ui.ViewModelFactory
+import com.p2he.rustore.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GalleryScreen(
     navController: NavController,
-    // ИСПРАВЛЕНО: Я добавил ViewModelFactory при вызове viewModel()
-    viewModel: GalleryViewModel = viewModel(
-        factory = ViewModelFactory(AppRepository())
-    )
+    viewModel: GalleryViewModel = viewModel(factory = ViewModelFactory(AppRepository()))
 ) {
-    // Подписываемся на изменения состояния UI
     val uiState by viewModel.uiState.collectAsState()
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("RuStore") },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimary
-                )
-            )
-        }
+        topBar = { GalleryTopAppBar(navController) },
+        containerColor = RuStoreDarkPurpleGray // Замена на цвет из палитры
     ) { paddingValues ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            // Отображаем UI в зависимости от состояния
+        Box(modifier = Modifier.padding(paddingValues)) {
             when (val state = uiState) {
                 is GalleryUiState.Loading -> {
-                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator(color = RuStoreWhite)
+                    }
                 }
                 is GalleryUiState.Success -> {
-                    LazyColumn(
-                        contentPadding = PaddingValues(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        shape = RoundedCornerShape(20.dp),
+                        color = RuStoreWhite
                     ) {
-                        items(state.apps, key = { it.id }) { app ->
-                            AppCard(app = app, navController = navController)
+                        LazyColumn(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            item { Spacer(modifier = Modifier.height(8.dp)) } // Отступ сверху
+                            items(state.apps) { app ->
+                                AppListItem(
+                                    app = app,
+                                    onAppClick = { navController.navigate("appDetails/${app.id}") }
+                                )
+                            }
+                            item { Spacer(modifier = Modifier.height(8.dp)) } // Отступ снизу
                         }
                     }
                 }
                 is GalleryUiState.Error -> {
-                    Text(
-                        "Не удалось загрузить приложения.",
-                        modifier = Modifier.align(Alignment.Center)
-                    )
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(text = state.message, color = RuStoreWhite)
+                    }
                 }
             }
         }
@@ -77,45 +80,98 @@ fun GalleryScreen(
 }
 
 @Composable
-fun AppCard(app: AppModel, navController: NavController) {
-    Card(
+fun GalleryTopAppBar(navController: NavController) {
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { navController.navigate("appDetails/${app.id}") }, // Навигация с id
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(12.dp)
+            .height(56.dp)
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AsyncImage(
-                model = app.iconUrl,
-                contentDescription = "Иконка приложения ${app.name}",
+            Text("Главная", color = RuStoreWhite, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
+            Text(
+                "Категории",
+                color = RuStoreWhite,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier.clickable { navController.navigate("categories") }
+            )
+            Text("О нас", color = RuStoreWhite, fontWeight = FontWeight.Normal)
+        }
+        IconButton(onClick = { /* TODO: Menu click */ }) {
+            Image(
+                painter = painterResource(id = R.drawable.menu),
+                contentDescription = "Меню",
+                modifier = Modifier.size(32.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun AppListItem(app: AppModel, onAppClick: (String) -> Unit) {
+    Column(modifier = Modifier.clickable { onAppClick(app.id) }) {
+        Row(
+            modifier = Modifier.padding(vertical = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
                 modifier = Modifier
-                    .size(64.dp)
-                    .clip(RoundedCornerShape(12.dp)),
-                contentScale = ContentScale.Crop
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(RuStoreLighterGray)
             )
 
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(Modifier.width(24.dp))
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = app.name,
-                    style = MaterialTheme.typography.titleLarge,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    text = app.name.uppercase(),
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 18.sp,
+                    color = RuStoreBlack
                 )
-                Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = app.shortDescription,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    text = app.developer,
+                    fontSize = 14.sp,
+                    color = RuStoreGray
                 )
+                Spacer(Modifier.height(4.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Button(
+                        onClick = { /* TODO: Download click */ },
+                        shape = RoundedCornerShape(50),
+                        colors = ButtonDefaults.buttonColors(containerColor = RuStoreBrightPink),
+                        // ИЗМЕНЕНО: Кнопка сделана еще меньше
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 0.dp),
+                        modifier = Modifier.height(24.dp)
+                    ) {
+                        Text("СКАЧАТЬ", fontSize = 10.sp, color = RuStoreWhite)
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = "ПОКУПКИ В\nПРИЛОЖЕНИИ",
+                        fontSize = 8.sp,
+                        lineHeight = 9.sp,
+                        color = RuStoreGray
+                    )
+                }
             }
         }
+        HorizontalDivider(color = RuStoreLighterGray, thickness = 1.dp)
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun GalleryScreenPreview() {
+    RuStoreTheme {
+        val fakeNavController = NavController(androidx.compose.ui.platform.LocalContext.current)
+        val fakeViewModel = GalleryViewModel(AppRepository())
+        GalleryScreen(navController = fakeNavController, viewModel = fakeViewModel)
     }
 }

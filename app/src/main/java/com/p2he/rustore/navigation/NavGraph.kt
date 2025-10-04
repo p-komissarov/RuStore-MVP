@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.p2he.rustore.ui.appdetails.AppDetailsScreen
+import com.p2he.rustore.ui.categories.CategoriesScreen
 import com.p2he.rustore.ui.gallery.GalleryScreen
 import com.p2he.rustore.ui.onboarding.OnboardingScreen
 
@@ -24,21 +25,16 @@ fun RuStoreNavGraph() {
         composable("gallery") {
             GalleryScreen(navController = navController)
         }
+        composable("categories") {
+            CategoriesScreen(navController = navController)
+        }
         composable(
-            // 1. Имя в route должно совпадать с именем в navArgument
             route = "appDetails/{appId}",
             arguments = listOf(navArgument("appId") { type = NavType.StringType })
         ) { backStackEntry ->
-            // 2. Извлекаем аргумент по правильному имени "appId"
+            // ИСПРАВЛЕНО: Извлекаем appId из аргументов и передаем его на экран
             val appId = backStackEntry.arguments?.getString("appId")
-
-            // 3. Проверяем, что appId не null, и передаем его
-            if (appId != null) {
-                AppDetailsScreen(navController = navController, appId = appId)
-            } else {
-                // Если id не найден, можно вернуться назад, чтобы избежать сбоя
-                navController.popBackStack()
-            }
+            AppDetailsScreen(navController = navController, appId = appId)
         }
     }
 }

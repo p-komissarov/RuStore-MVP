@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.p2he.rustore.ui.appdetails.AppDetailsScreen
+import com.p2he.rustore.ui.categories.CategoriesScreen
 import com.p2he.rustore.ui.gallery.GalleryScreen
 import com.p2he.rustore.ui.theme.RuStoreTheme
 
@@ -34,6 +35,11 @@ class MainActivity : ComponentActivity() {
                         // Экран-галерея
                         composable("gallery") {
                             GalleryScreen(navController = navController)
+                        }
+
+                        // Экран категорий
+                        composable("categories") {
+                            CategoriesScreen(navController = navController)
                         }
 
                         // Экран деталей с обязательным аргументом appId

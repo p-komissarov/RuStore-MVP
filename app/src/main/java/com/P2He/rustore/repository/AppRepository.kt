@@ -1,6 +1,7 @@
 package com.P2He.rustore.repository
 
 import com.P2He.rustore.model.AppModel
+import kotlin.collections.listOf
 
 class AppRepository {
     fun getApps(): List<AppModel> {

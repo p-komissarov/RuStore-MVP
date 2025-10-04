@@ -84,7 +84,7 @@ fun GalleryTopAppBar(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
+            .height(90.dp)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
@@ -93,7 +93,7 @@ fun GalleryTopAppBar(navController: NavController) {
             horizontalArrangement = Arrangement.spacedBy(24.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Главная", color = RuStoreWhite, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
+            Text("Главная", color = RuStoreDarkPink, textDecoration = TextDecoration.Underline, fontWeight = FontWeight.Bold)
             Text(
                 "Категории",
                 color = RuStoreWhite,

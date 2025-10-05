@@ -23,7 +23,13 @@ font montserrat_regular
 font montserrat_semibold
 mipmap ic_launcher
 mipmap ic_launcher_round
+string about_us
 string app_name
+string categories
+string download
+string home
+string in_app_purchases
+string menu
 style Theme.RuStore
 xml backup_rules
 xml data_extraction_rules

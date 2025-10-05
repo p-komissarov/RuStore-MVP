@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RuStore</string>
+    <string name="home">ГЛАВНАЯ</string>
+    <string name="categories">КАТЕГОРИИ</string>
+    <string name="about_us">О НАС</string>
+    <string name="menu">Меню</string>
+    <string name="download">СКАЧАТЬ</string>
+    <string name="in_app_purchases">ПОКУПКИ В\nПРИЛОЖЕНИИ</string>
 </resources>

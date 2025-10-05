@@ -13,9 +13,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,35 +33,25 @@ fun OnboardingScreen(
     navController: NavController,
     viewModel: OnboardingViewModel = viewModel()
 ) {
-    val onboardingCompleted by viewModel.onboardingCompleted.collectAsState()
+    val pages = listOf(
+        R.drawable.onboarding_1,
+        R.drawable.onboarding_2,
+        R.drawable.onboarding_3
+    )
+    val pagerState = rememberPagerState(pageCount = { pages.size })
+    val scope = rememberCoroutineScope()
 
-    if (onboardingCompleted) {
-        LaunchedEffect(Unit) {
-            navController.navigate("gallery") {
-                popUpTo("onboarding") { inclusive = true }
-            }
-        }
-    } else {
-        val pages = listOf(
-            R.drawable.onboarding_1,
-            R.drawable.onboarding_2,
-            R.drawable.onboarding_3
-        )
-        val pagerState = rememberPagerState(pageCount = { pages.size })
-        val scope = rememberCoroutineScope()
-
+    HorizontalPager(
+        state = pagerState,
+        modifier = Modifier.fillMaxSize()
+    ) { page ->
         Box(modifier = Modifier.fillMaxSize()) {
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier.fillMaxSize()
-            ) { page ->
-                Image(
-                    painter = painterResource(id = pages[page]),
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
-                )
-            }
+            Image(
+                painter = painterResource(id = pages[page]),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
 
             Box(
                 modifier = Modifier
@@ -76,12 +63,15 @@ fun OnboardingScreen(
             ) {
                 Button(
                     onClick = {
-                        if (pagerState.currentPage < pages.size - 1) {
+                        if (page < pages.size - 1) {
                             scope.launch {
-                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                pagerState.animateScrollToPage(page + 1)
                             }
                         } else {
                             viewModel.setOnboardingCompleted(true)
+                            navController.navigate("gallery") {
+                                popUpTo("onboarding") { inclusive = true }
+                            }
                         }
                     },
                     modifier = Modifier
@@ -89,7 +79,7 @@ fun OnboardingScreen(
                         .height(52.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = RuStoreDarkPink)
                 ) {
-                    val buttonText = if (pagerState.currentPage < pages.size - 1) {
+                    val buttonText = if (page < pages.size - 1) {
                         "Далее"
                     } else {
                         "Перейти в приложение"

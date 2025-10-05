@@ -4,7 +4,7 @@
             "outputFile": "com.p2he.rustore.app-mergeDebugResources-2:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Пользователь\\.gradle\\caches\\8.13\\transforms\\8dec18e1b92ac03a1e19b060a92cb704\\transformed\\core-1.17.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\Пользователь\\.gradle\\caches\\8.13\\transforms\\7a1a17c3123a194fc542a723b44c2e95\\transformed\\core-1.13.1\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

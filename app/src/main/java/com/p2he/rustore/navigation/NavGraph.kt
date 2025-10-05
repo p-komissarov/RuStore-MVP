@@ -6,9 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.p2he.rustore.ui.about.AboutUsScreen
 import com.p2he.rustore.ui.categories.CategoriesScreen
 import com.p2he.rustore.ui.details.AppDetailsScreen
 import com.p2he.rustore.ui.gallery.GalleryScreen
+import com.p2he.rustore.ui.menu.MenuScreen
 import com.p2he.rustore.ui.onboarding.OnboardingScreen
 
 @Composable
@@ -28,8 +30,21 @@ fun RuStoreNavGraph(startDestination: String = "onboarding") {
             val appId = backStackEntry.arguments?.getString("appId")
             AppDetailsScreen(navController = navController, appId = appId)
         }
-        composable("categories") {
-            CategoriesScreen(navController = navController)
+        composable(
+            route = "categories?subCategory={subCategory}",
+            arguments = listOf(navArgument("subCategory") { 
+                type = NavType.StringType
+                nullable = true 
+            })
+        ) { backStackEntry ->
+            val subCategory = backStackEntry.arguments?.getString("subCategory")
+            CategoriesScreen(navController = navController, selectedSubCategory = subCategory)
+        }
+        composable("about") {
+            AboutUsScreen(navController = navController)
+        }
+        composable("menu") {
+            MenuScreen(navController = navController)
         }
     }
 }

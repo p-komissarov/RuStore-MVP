@@ -124,6 +124,11 @@ drawable onboarding_1
 drawable onboarding_2
 drawable onboarding_3
 drawable provider
+drawable telicon
+drawable telscreen1
+drawable telscreen2
+drawable telscreen3
+drawable telscreen4
 drawable vkicon
 drawable vkscreen1
 drawable vkscreen2

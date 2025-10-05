@@ -182,8 +182,8 @@ fun QuickInfoSection(app: AppModel) {
     ) {
         InfoChip(text = app.ageRating, label = "")
         InfoChip(text = app.size, label = "")
-        InfoChip(drawableRes = R.drawable.provider, label = "Разработчик")
-        InfoChip(drawableRes = R.drawable.category, label = "Категория")
+        InfoChip(drawableRes = R.drawable.provider, label = app.developer)
+        InfoChip(drawableRes = R.drawable.category, label = app.category)
     }
 }
 
@@ -214,7 +214,7 @@ fun InfoChip(
             Image(painter = painterResource(id = drawableRes), contentDescription = label, modifier = Modifier.size(40.dp))
         }
         if (label.isNotEmpty()) {
-            Text(label, color = RuStoreWhite, fontSize = 10.sp, textAlign = TextAlign.Center)
+            Text(label, color = RuStoreWhite, fontSize = 10.sp, textAlign = TextAlign.Center, lineHeight = 12.sp)
         }
     }
 }

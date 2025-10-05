@@ -220,11 +220,16 @@ fun InfoChip(
 }
 
 @Composable
-fun ScreenshotsSection(screenshots: List<String>) {
+fun ScreenshotsSection(screenshots: List<Any>) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-        items(screenshots) { screenshotUrl ->
+        items(screenshots) { screenshot ->
+            val painter = when (screenshot) {
+                is String -> rememberAsyncImagePainter(screenshot)
+                is Int -> painterResource(id = screenshot)
+                else -> return@items
+            }
             Image(
-                painter = rememberAsyncImagePainter(screenshotUrl),
+                painter = painter,
                 contentDescription = null,
                 modifier = Modifier
                     .height(300.dp)

@@ -14,5 +14,5 @@ data class AppModel(
     val apkUrl: String,
     val version: String,
     val size: String,
-    val screenshots: List<String>
+    val screenshots: List<Any>
 )

@@ -12,16 +12,20 @@
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable\\icon.png"
     },
     {
-        "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable_arrow.png.flat",
-        "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable\\arrow.png"
-    },
-    {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable_onboarding_1.png.flat",
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable\\onboarding_1.png"
     },
     {
+        "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable_arrow.png.flat",
+        "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable\\arrow.png"
+    },
+    {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.p2he.rustore.app-debug-4:/drawable_provider.png.flat",
+        "source": "com.p2he.rustore.app-main-6:/drawable/provider.png"
     },
     {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
@@ -48,20 +52,16 @@
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.p2he.rustore.app-debug-4:/drawable_onboarding_3.png.flat",
-        "source": "com.p2he.rustore.app-main-6:/drawable/onboarding_3.png"
-    },
-    {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\font_montserrat_regular.ttf.flat",
-        "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\font\\montserrat_regular.ttf"
-    },
-    {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable_onboarding_3.png.flat",
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\drawable\\onboarding_3.png"
+    },
+    {
+        "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\font_montserrat_regular.ttf.flat",
+        "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\font\\montserrat_regular.ttf"
     },
     {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\drawable_menu.png.flat",
@@ -110,6 +110,10 @@
     {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-main-6:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.p2he.rustore.app-debug-4:/drawable_category.png.flat",
+        "source": "com.p2he.rustore.app-main-6:/drawable/category.png"
     },
     {
         "merged": "C:\\Users\\Пользователь\\.gradle\\daemon\\8.13\\com.p2he.rustore.app-debug-4:\\mipmap-xhdpi_ic_launcher.webp.flat",

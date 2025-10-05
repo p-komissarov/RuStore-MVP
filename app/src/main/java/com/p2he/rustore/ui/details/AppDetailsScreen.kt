@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -39,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -116,7 +118,7 @@ fun AppDetailsScreen(navController: NavController, appId: String?) {
                         verticalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
                         item { QuickInfoSection(app = app!!) }
-                        item { ScreenshotsSection() }
+                        item { ScreenshotsSection(screenshots = app!!.screenshots) }
                         item { DescriptionSection(app = app!!) }
                         item { FullInfoSection(app = app!!) }
                     }
@@ -139,8 +141,14 @@ fun AppHeader(app: AppModel) {
             .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 24.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
+        val painter = if (app.iconRes != null) {
+            painterResource(id = app.iconRes)
+        } else {
+            rememberAsyncImagePainter(app.iconUrl)
+        }
+
         Image(
-            painter = rememberAsyncImagePainter(app.iconUrl),
+            painter = painter,
             contentDescription = null,
             modifier = Modifier
                 .size(100.dp)
@@ -212,15 +220,18 @@ fun InfoChip(
 }
 
 @Composable
-fun ScreenshotsSection() {
+fun ScreenshotsSection(screenshots: List<String>) {
     LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-        items(4) {
-            Box(
+        items(screenshots) { screenshotUrl ->
+            Image(
+                painter = rememberAsyncImagePainter(screenshotUrl),
+                contentDescription = null,
                 modifier = Modifier
                     .height(300.dp)
                     .width(180.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(RuStoreLighterGray)
+                    .background(RuStoreLighterGray),
+                contentScale = ContentScale.Crop
             )
         }
     }

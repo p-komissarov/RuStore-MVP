@@ -47,6 +47,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coil.compose.rememberAsyncImagePainter
 import com.p2he.rustore.R
 import com.p2he.rustore.model.AppModel
 import com.p2he.rustore.repository.AppRepository
@@ -55,10 +56,8 @@ import com.p2he.rustore.ui.theme.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen(navController: NavController, selectedSubCategory: String? = null) {
-    val subCategories = listOf(
-        "СОЦ. СЕТИ", "ИГРЫ", "МАРКЕТПЛЕЙСЫ", "ФОТО И ВИДЕО",
-        "МУЗЫКА И АУДИО", "КНИГИ", "ОБРАЗОВАНИЕ", "ЗДОРОВЬЕ И СПОРТ"
-    )
+    val repository = remember { AppRepository() }
+    val subCategories = remember { repository.getUniqueCategories() }
     var selectedTabIndex by remember { mutableStateOf(0) }
 
     LaunchedEffect(selectedSubCategory) {
@@ -80,13 +79,15 @@ fun CategoriesScreen(navController: NavController, selectedSubCategory: String? 
                 shape = RoundedCornerShape(20.dp),
                 color = RuStoreWhite
             ) {
-                Column {
-                    SubCategoryTabs(
-                        selectedTabIndex = selectedTabIndex,
-                        onTabSelected = { selectedTabIndex = it },
-                        subCategories = subCategories
-                    )
-                    CategoryContent(navController = navController, selectedCategory = subCategories[selectedTabIndex])
+                if (subCategories.isNotEmpty()) {
+                    Column {
+                        SubCategoryTabs(
+                            selectedTabIndex = selectedTabIndex,
+                            onTabSelected = { selectedTabIndex = it },
+                            subCategories = subCategories
+                        )
+                        CategoryContent(navController = navController, selectedCategory = subCategories[selectedTabIndex])
+                    }
                 }
             }
         }
@@ -165,7 +166,7 @@ fun SubCategoryTabs(selectedTabIndex: Int, onTabSelected: (Int) -> Unit, subCate
 fun CategoryContent(navController: NavController, selectedCategory: String) {
     val repository = remember { AppRepository() }
     val apps = remember(selectedCategory) {
-        repository.getApps() // For now, we show all apps, as there's no category mapping
+        repository.getAppsByCategory(selectedCategory)
     }
 
     LazyColumn(
@@ -196,7 +197,14 @@ fun AppListItem(app: AppModel, onAppClick: (String) -> Unit) {
             modifier = Modifier.padding(vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(
+            val painter = if (app.iconRes != null) {
+                painterResource(id = app.iconRes)
+            } else {
+                rememberAsyncImagePainter(app.iconUrl)
+            }
+            Image(
+                painter = painter,
+                contentDescription = null,
                 modifier = Modifier
                     .size(80.dp)
                     .clip(RoundedCornerShape(20.dp))

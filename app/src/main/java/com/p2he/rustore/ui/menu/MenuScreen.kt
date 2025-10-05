@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.p2he.rustore.repository.AppRepository
 import com.p2he.rustore.ui.theme.RuStoreDarkPink
 import com.p2he.rustore.ui.theme.RuStoreDarkPurpleGray
 import com.p2he.rustore.ui.theme.RuStoreWhite
@@ -26,6 +27,8 @@ import com.p2he.rustore.ui.theme.RuStoreWhite
 @Composable
 fun MenuScreen(navController: NavController) {
     val previousRoute = remember { navController.previousBackStackEntry?.destination?.route }
+    val repository = remember { AppRepository() }
+    val subCategories = remember { repository.getUniqueCategories() }
 
     Scaffold(
         containerColor = RuStoreDarkPurpleGray
@@ -98,5 +101,3 @@ fun MenuScreen(navController: NavController) {
         }
     }
 }
-
-private val subCategories = listOf("СОЦ. СЕТИ", "ИГРЫ", "МАРКЕТПЛЕЙСЫ")
